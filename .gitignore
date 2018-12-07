@@ -1,1 +1,7 @@
 node_modules/
+
+burger-builder/\.idea/
+
+burger-builder/package-lock\.json
+
+redux/package-lock\.json
