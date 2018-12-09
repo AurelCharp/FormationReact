@@ -16,27 +16,27 @@ class Layout extends Component {
     }
 
     sideDrawerToggleHandler = () => {
-        this.setState( (prevState) => {
-            return { showSideDrawer: !this.state.showSideDrawer }
+        this.setState( ( prevState ) => {
+            return { showSideDrawer: !prevState.showSideDrawer };
         } );
     }
 
     render () {
         return (
-        <Aux>
-            <Toolbar
-              isAuth={ this.props.isAuthenticated }
-              drawerTogglerClicked={ this.sideDrawerToggleHandler }/>
-            <SideDrawer
-                isAuth={ this.props.isAuthenticated }
-                open={ this.state.showSideDrawer }
-                closed={ this.sideDrawerClosedHandler }/>
-            <main className={ classes.Content }>
-              { this.props.children }
-            </main>
-        </Aux>
-        );
-    };
+            <Aux>
+                <Toolbar
+                    isAuth={this.props.isAuthenticated}
+                    drawerToggleClicked={this.sideDrawerToggleHandler} />
+                <SideDrawer
+                    isAuth={this.props.isAuthenticated}
+                    open={this.state.showSideDrawer}
+                    closed={this.sideDrawerClosedHandler} />
+                <main className={classes.Content}>
+                    {this.props.children}
+                </main>
+            </Aux>
+        )
+    }
 }
 
 const mapStateToProps = state => {
@@ -45,4 +45,4 @@ const mapStateToProps = state => {
     };
 };
 
-export default connect(mapStateToProps)(Layout);
+export default connect( mapStateToProps )( Layout );
